@@ -182,5 +182,8 @@ Template.puzzle.helpers({
 Template.puzzle.events({
   'click [data-action="next"]'(event, instance) {
     instance.next();
-  }
+  },
+  'click [data-action="restart"]'(event, instance) {
+    instance.initialize();
+  },
 });
