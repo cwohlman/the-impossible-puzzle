@@ -1,0 +1,52 @@
+<head>
+  <title>simple</title>
+</head>
+
+<body>
+  <div class="container">
+    {{> puzzle}}
+  </div>
+</body>
+
+<template name="puzzle">
+  <h1>The Impossible Puzzle <small>(Round {{round}})</small></h1>
+  <h3><b>{{whosTurn}}</b>, do you know which numbers I'm thinking of?</h3>
+  <table>
+    <thead>
+      <tr>
+        <td></td>
+        {{#each columns}}
+          <th>{{i}}</th>
+        {{/each}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each rows}}
+        <tr>
+          <th>{{j}}</th>
+          {{#each columns}}
+            <td class="{{classFor . ..}}">
+              {{cell . ..}}
+            </td>
+          {{/each}}        
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <p>
+    If {{whosTurn}} saw one of the highlighted numbers, {{he}} would know the answer, because each highlighted number is the {{product}} of only a single (remaining) pair.
+  </p>
+
+  <button data-action="next">
+    Next!
+  </button>
+  <button data-action="restart">
+    Start Over!
+  </button>
+
+<!--   <pre>{{algorithm}}</pre>
+  {{#each results}}
+    <p>{{#each .}} {{i}}/{{j}} {{/each}}</p>
+  {{/each}} -->
+</template> 
